@@ -1,0 +1,14 @@
+$client = New-Object System.Net.WebClient
+$client.DownloadFile("http://www.indiewire.com/wp-content/uploads/2017/07/rick-and-morty.png" , "$home\rick-and-morty.png")
+Set-ItemProperty -path 'HKCU:\Control Panel\Desktop\' -name wallpaper -value "$home\rick-and-morty.png"
+Start-Sleep -s 2
+Set-ItemProperty -path 'HKCU:\Software\Microsoft\Internet Explorer\Desktop\General' -name wallpaper -value "$home\rick-and-morty.png"
+Start-Sleep -s 2
+rundll32.exe user32.dll, UpdatePerUserSystemParameters
+Start-Sleep -s 2
+rundll32.exe user32.dll, UpdatePerUserSystemParameters, 0, $false
+Start-Sleep -s 2
+rundll32.exe user32.dll, UpdatePerUserSystemParameters, 1, True
+Start-Sleep -s 2
+rundll32.exe user32.dll, UpdatePerUserSystemParameters 1, True
+Start-Sleep -s 2
